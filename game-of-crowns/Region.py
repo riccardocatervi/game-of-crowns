@@ -11,15 +11,6 @@ class Region:
     id: RegionID
     cells: tuple[Cell, ...] 
 
-    def __post_init__(self) -> None:
-        for cell in self.cells:
-            if cell.region_id != self.id:
-                raise ValueError(
-                    f"Cell {cell.row},{cell.col} not belong to region {self.id}"
-                )
-        if len(set(self.cells)) != len(self.cells):
-            raise ValueError(f"Duplicate cells in {self.id}")
-
     def count_crowns(self) -> int:
         return sum(1 for cell in self.cells
                    if cell.get_state() is CellState.CROWN)
@@ -37,6 +28,9 @@ class Region:
     
     def contains(self, cell: Cell) -> bool:
         return True if cell in self.cells else False
+    
+    def with_new_region() -> "Region":
+        
 
         
 

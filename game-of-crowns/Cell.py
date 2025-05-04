@@ -6,25 +6,25 @@ from RegionID import RegionID
 
 @dataclass(frozen=True)
 class Cell:
-    row: int
-    col: int
-    region_id: RegionID
-    state: CellState
+    _row: int
+    _col: int
+    _region_id: RegionID
+    _state: CellState
 
     def get_row(self) -> int:
-        return self.row
+        return self._row
     
     def get_col(self) -> int:
-        return self.col
+        return self._col
 
     def get_region_id(self) -> RegionID:
-        return self.region
+        return self._region
 
     def get_state(self) -> CellState:
-        return self.state
+        return self._state
     
     def with_state(self, new_state: CellState) -> "Cell":
-        return Cell(self.row, self.col, self.region_id, new_state)
+        return Cell(self._row, self._col, self._region_id, new_state)
     
 
     
