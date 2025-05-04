@@ -13,7 +13,7 @@ class Region:
 
     def count_crowns(self) -> int:
         return sum(1 for cell in self.cells
-                   if cell.get_state() is CellState.CROWN)
+                   if cell.state is CellState.CROWN)
     
     def has_exactly_one_crown(self) -> bool:
         return self.count_crowns() == 1 
@@ -21,7 +21,7 @@ class Region:
     def get_empty_cells(self) -> tuple[Cell, ...]:
         return tuple(
             cell for cell in self.cells
-                     if cell.get_state() is CellState.EMPTY)
+                     if cell.state is CellState.EMPTY)
     
     def possible_positions(self) -> list[Cell]:
         return list(self.get_empty_cells())
@@ -29,8 +29,7 @@ class Region:
     def contains(self, cell: Cell) -> bool:
         return True if cell in self.cells else False
     
-    def with_new_region() -> "Region":
-        
+
 
         
 
