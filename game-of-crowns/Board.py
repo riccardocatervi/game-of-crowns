@@ -13,7 +13,7 @@ class Board:
     cols: int
     grid: tuple[tuple[Cell, ...], ...]
     regions: tuple[Region, ...]
-    _region_lookup: dict[RegionID, Region] = field(init=False)
+    _region_lookup: dict[RegionID, Region] = field(init=False, repr=False, compare= False)
     
     DIRS: ClassVar[tuple[tuple[int, int], ...]] = (
         (-1,  0), #N
