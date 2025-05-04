@@ -1,6 +1,7 @@
 from Board import Board
 from GameState import GameState
 from CellState import CellState
+from PuzzleIO import PuzzleIO
 
 class GameController:
     def __init__(self, current_board: Board) -> None:
@@ -29,10 +30,11 @@ class GameController:
         self.history.clear()
     
     def load_puzzle(self, data: dict) -> None:
-        ''' board = PuzzleIO.load_from_dict(data)
-    self.current_board = board
-    self.history.clear()
-    self.game_state = GameState.PLAYING '''
+        board = PuzzleIO.board_from_dict(data)
+        self.current_board = board
+        self.history.clear()
+        self.game_state = GameState.PLAYING
+
     
 
     
