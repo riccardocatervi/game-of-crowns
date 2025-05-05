@@ -1,15 +1,15 @@
 import json
 
-from RegionID import RegionID
-from CellState import CellState
-from Cell import Cell
-from Region import Region
-from Board import Board
+from game_of_crowns.RegionID import RegionID
+from game_of_crowns.CellState import CellState
+from game_of_crowns.Cell import Cell
+from game_of_crowns.Region import Region
+from game_of_crowns.Board import Board
 
 class PuzzleIO:
 
     @staticmethod
-    def board_from_dict(d: dict) -> Board:
+    def load_from_dict(d: dict) -> Board:
         rows, cols = d["height"], d["width"]
         cells = {
             (r,c): Cell(r, c, RegionID(color), CellState.EMPTY)

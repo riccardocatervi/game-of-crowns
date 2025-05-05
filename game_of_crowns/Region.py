@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 
-from Cell import Cell
-from CellState import CellState
-from RegionID import RegionID
+from game_of_crowns.Cell import Cell
+from game_of_crowns.CellState import CellState
+from game_of_crowns.RegionID import RegionID
 
 
 

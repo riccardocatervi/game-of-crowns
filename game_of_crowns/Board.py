@@ -1,10 +1,10 @@
 from dataclasses import dataclass, field
 from typing import ClassVar
 
-from RegionID import RegionID
-from Region import Region
-from Cell import Cell
-from CellState import CellState
+from game_of_crowns.RegionID import RegionID
+from game_of_crowns.Region import Region
+from game_of_crowns.Cell import Cell
+from game_of_crowns.CellState import CellState
 
 
 @dataclass(frozen=True)

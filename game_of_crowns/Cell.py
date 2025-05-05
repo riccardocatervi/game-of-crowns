@@ -1,8 +1,7 @@
 from dataclasses import dataclass
 
-from CellState import CellState
-from Region import Region
-from RegionID import RegionID
+from game_of_crowns.CellState import CellState
+from game_of_crowns.RegionID import RegionID
 
 @dataclass(frozen=True)
 class Cell:

@@ -1,7 +1,7 @@
-from Board import Board
-from GameState import GameState
-from CellState import CellState
-from PuzzleIO import PuzzleIO
+from game_of_crowns.Board import Board
+from game_of_crowns.GameState import GameState
+from game_of_crowns.CellState import CellState
+from game_of_crowns.PuzzleIO import PuzzleIO
 
 class GameController:
     def __init__(self, current_board: Board) -> None:
@@ -20,7 +20,7 @@ class GameController:
             return True
         
     def undo(self) -> bool:
-        if self.game_state is not GameState.PLAYING or len(self.history == 0):
+        if self.game_state is not GameState.PLAYING or len(self.history) == 0:
             return False
         self.current_board  = self.history.pop()
         return True
@@ -28,9 +28,10 @@ class GameController:
     def reset(self) -> None:
         self.current_board = self.history[0]
         self.history.clear()
+        self.game_state = GameState.PLAYING
     
     def load_puzzle(self, data: dict) -> None:
-        board = PuzzleIO.board_from_dict(data)
+        board = PuzzleIO.load_from_dict(data)
         self.current_board = board
         self.history.clear()
         self.game_state = GameState.PLAYING
