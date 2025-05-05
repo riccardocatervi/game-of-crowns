@@ -76,5 +76,23 @@ class Board:
     
     @property
     def is_solved(self) -> bool:
-        return all(r.has_exactly_one_crown() for r in self.regions) and not self.conflicting_crowns()
+        if not all(region.has_exactly_one_crown() for region in self.regions):
+            return False
+        
+        if self.conflicting_crowns():
+            return False
+        
+        row_lines = [[ self.get_cell_at(r,c) for c in range(self.cols) ]
+                     for r in range(self.rows)]
+        col_lines = [[ self.get_cell_at(r,c) for r in range(self.rows) ]
+                     for c in range(self.cols)]
+
+        return self._one_crown_per_line(row_lines) and \
+               self._one_crown_per_line(col_lines)
+    
+    def _one_crown_per_line(self, lines: list[list[Cell]]) -> bool:
+        return all(
+            sum(1 for cell in line if cell.state is CellState.CROWN) == 1
+            for line in lines
+        )
 
