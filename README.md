@@ -11,7 +11,7 @@
 6. [Roadmap](#roadmap)
 7. [Contributing](#contributing)
 8. [License](#license)
-9. [Acknowledgments](#acknowledgments)
+9. [Acknowledgements](#acknowledgements)
 
 ## Features
 - Emphasises a clean **object-oriented design**, using **immutability** where appropriate to enforce consistency and prevent unintended state mutation—even in adversarial or tampering scenarios. Fully playable **logic puzzle engine** based on the Queens puzzle mechanics.
